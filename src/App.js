@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
 
-function App() {
+import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
+
+import FetchIntervalContainer from './Modules/FetchInterval/Container/FetchIntervalContainer'
+import FetchUserContainer from './Modules/FetchUser/Container/FetchUserContainer'
+import React from 'react'
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={FetchUserContainer} />
+          <Route exact path="/auto" component={FetchIntervalContainer} />
+        </Switch>
+      </Router>
+    </>
+  )
 }
 
-export default App;
+export default App
